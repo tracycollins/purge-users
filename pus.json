@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "pus",
+      "script": "index.js",
+      "cwd": "/Volumes/RAID1/projects/purge-users",
+      "autorestart": true,
+      "restart_delay": 300,
+      "env": {
+        "FORCE_COLOR": 1,
+        "NODE_ENV": "production",
+        "QUIT_ON_COMPLETE": true
+      }
+    }
+  ]
+}
