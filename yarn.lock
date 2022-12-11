@@ -1334,19 +1334,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/purge-users@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@threeceelabs/purge-users@workspace:."
-  dependencies:
-    "@threeceelabs/mongoose-utilities": ^3.0.122
-    "@threeceelabs/threeceeutilities": ^5.2.259
-    command-line-args: ^5.2.1
-    eslint: ^8.29.0
-    object.pick: ^1.3.0
-    stately.js: ^2.0.0
-  languageName: unknown
-  linkType: soft
-
 "@threeceelabs/threeceeutilities@npm:^5.2.259":
   version: 5.2.259
   resolution: "@threeceelabs/threeceeutilities@npm:5.2.259"
@@ -4625,6 +4612,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"purge-users@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "purge-users@workspace:."
+  dependencies:
+    "@threeceelabs/mongoose-utilities": ^3.0.122
+    "@threeceelabs/threeceeutilities": ^5.2.259
+    command-line-args: ^5.2.1
+    object.pick: ^1.3.0
+    stately.js: ^2.0.0
+  languageName: unknown
+  linkType: soft
+
 "qs@npm:~6.5.2":
   version: 6.5.3
   resolution: "qs@npm:6.5.3"
@@ -4788,7 +4787,7 @@ __metadata:
 
 "resolve@patch:resolve@^1.1.6#~builtin<compat/resolve>":
   version: 1.22.1
-  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=07638b"
+  resolution: "resolve@patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=c3c19d"
   dependencies:
     is-core-module: ^2.9.0
     path-parse: ^1.0.7
