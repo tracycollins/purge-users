@@ -1,6 +1,7 @@
 {
   "name": "purge-users",
   "type": "module",
+  "version": "1.0.0",
   "packageManager": "yarn@3.3.0",
   "dependencies": {
     "@threeceelabs/mongoose-utilities": "^3.0.122",
