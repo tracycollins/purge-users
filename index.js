@@ -93,6 +93,8 @@ tcUtils.on("ready", async () => {
 const jsonPrint = tcUtils.jsonPrint;
 const msToTime = tcUtils.msToTime;
 const getTimeStamp = tcUtils.getTimeStamp;
+const formatBoolean = tcUtils.formatBoolean;
+const formatCategory = tcUtils.formatCategory;
 
 const startTimeMoment = moment();
 
@@ -1046,24 +1048,30 @@ async function initfetchUsers(p) {
 
         const purgeUserResult = await purgeUser({ user });
         const chlk = purgeUserResult.deleted ? chalkInfo : chalkLog;
+
+        statsObj.users.purgeRate =
+          (100 * statsObj.users.deleted) / statsObj.users.fetched;
+
         statsObj.users.percentProcessed =
           (100 * statsObj.users.fetched) / statsObj.users.total;
+
         if (verbose || purgeUserResult.deleted)
           console.log(
             chlk(
-              `${PF} | PURGE RESULT` +
-                ` [ ${statsObj.users.deleted} / ${statsObj.users.fetched} / ${
-                  statsObj.users.total
-                } / ${statsObj.users.percentProcessed.toFixed(2)}% PRCSD ]` +
+              `${PF} | PURGE` +
+                ` [ ${statsObj.users.deleted}` +
+                ` / ${statsObj.users.fetched}` +
+                ` / ${statsObj.users.total}` +
+                ` / ${statsObj.users.purgeRate.toFixed(2)}% PURGE RATE` +
+                ` - ${statsObj.users.percentProcessed.toFixed(2)}% PRCSD ]` +
                 ` | LS: ${moment(user.lastSeen).format(
                   compactDateTimeFormat
                 )}` +
-                `, ${parseInt(
-                  purgeUserResult.lastSeenDaysAgo
-                )} DAYS AGO - MAX: ${configuration.maxLastSeenDays}` +
-                ` | DELETED: ${purgeUserResult.deleted}` +
-                ` | CM: ${user.category}` +
-                ` | CA: ${user.categoryAuto}` +
+                `, ${parseInt(purgeUserResult.lastSeenDaysAgo)} DAYS AGO` +
+                ` - MAX: ${configuration.maxLastSeenDays}` +
+                ` | DELETED: ${formatBoolean(purgeUserResult.deleted)}` +
+                ` | CM: ${formatCategory(user.category)}` +
+                ` | CA: ${formatCategory(user.categoryAuto)}` +
                 ` | ${user.followersCount} FLWRs` +
                 ` | ${user.friendsCount} FRNDs` +
                 ` | NID: ${user.nodeId}` +
