@@ -1294,7 +1294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/mongoose-twitter@npm:^2.0.103":
+"@threeceelabs/mongoose-twitter@npm:^2.0.103, @threeceelabs/mongoose-twitter@npm:^2.0.104":
   version: 2.0.104
   resolution: "@threeceelabs/mongoose-twitter@npm:2.0.104"
   dependencies:
@@ -1316,13 +1316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/mongoose-utilities@npm:^3.0.122":
-  version: 3.0.122
-  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.122"
+"@threeceelabs/mongoose-utilities@npm:^3.0.123":
+  version: 3.0.123
+  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.123"
   dependencies:
     "@google-cloud/secret-manager": ^4.1.4
-    "@google-cloud/storage": ^6.7.0
-    "@threeceelabs/mongoose-twitter": ^2.0.103
+    "@google-cloud/storage": ^6.8.0
+    "@threeceelabs/mongoose-twitter": ^2.0.104
     "@threeceelabs/twitter-image-parser": ^2.1.12
     deepcopy: ^2.1.0
     eslint: ^8.29.0
@@ -1330,7 +1330,7 @@ __metadata:
     google-gax: ^3.5.2
     parse-json: ^6.0.2
     treeify: ^1.1.0
-  checksum: d8e20288050293ee18cdcbaec1a9837c38a5b890acc6138dcc6e1cebfa793394a9695e5f9a8f0563c4c0c4afce13cc8a2b06fa49eff30d560ca94784f3b63cc8
+  checksum: 4312099f05f5f8e2a962c6ec55f7eec98548b2c0c8a7dd42c6d3bf87a6f45d17012b4f2f6f754b7d3078a8c1a9dde4771d2f919813aff4510f580afe73cd73d3
   languageName: node
   linkType: hard
 
@@ -4616,7 +4616,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "purge-users@workspace:."
   dependencies:
-    "@threeceelabs/mongoose-utilities": ^3.0.122
+    "@threeceelabs/mongoose-utilities": ^3.0.123
     "@threeceelabs/threeceeutilities": ^5.2.259
     command-line-args: ^5.2.1
     object.pick: ^1.3.0
