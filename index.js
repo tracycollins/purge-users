@@ -969,6 +969,16 @@ async function initfetchUsers(p) {
     statsObj.users.total = await global.wordAssoDb.User.countDocuments(query);
   }
 
+  if (statsObj.users.total === 0) {
+    console.log(
+      chalk.yellow(
+        `${PF} | TEST MODE: ${configuration.testMode} | NO USERS TO FETCH | TOTAL USER TO FETCH: ${statsObj.users.total} | SET lastUserFetched = 1000`
+      )
+    );
+    lastUserFetched = "1000";
+    query.nodeId = { $gt: lastUserFetched };
+  }
+
   console.log(
     chalk.blue(
       `${PF} | TEST MODE: ${configuration.testMode} | TOTAL USER TO FETCH: ${statsObj.users.total}`
