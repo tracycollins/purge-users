@@ -1334,9 +1334,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/threeceeutilities@npm:^5.2.261":
-  version: 5.2.261
-  resolution: "@threeceelabs/threeceeutilities@npm:5.2.261"
+"@threeceelabs/threeceeutilities@npm:^5.2.262":
+  version: 5.2.262
+  resolution: "@threeceelabs/threeceeutilities@npm:5.2.262"
   dependencies:
     "@google-cloud/language": ^5.1.2
     "@google-cloud/secret-manager": ^4.2.0
@@ -1344,7 +1344,7 @@ __metadata:
     "@googlemaps/google-maps-services-js": ^3.3.16
     "@threeceelabs/mongoose-twitter": ^2.0.105
     "@threeceelabs/twitter-image-parser": ^2.1.12
-    "@threeceelabs/twitter-text-parser": ^2.1.31
+    "@threeceelabs/twitter-text-parser": ^2.1.32
     async: ^3.2.4
     atob: ^2.1.2
     btoa: ^1.2.1
@@ -1374,7 +1374,7 @@ __metadata:
     twit: ^2.2.11
     url-parse: ^1.5.10
     write-json-file: ^5.0.0
-  checksum: 38d7a258749009ea2457d2243bd6147e5048d86a85cd1c0c4782cdeacf15dd64837bbf4a7f437617ef565a02acbd96e7a54a0723ec36a3d9bd7e12163a806946
+  checksum: 63a5eda710978f774b173118ecfa8d17514c499773598cc4e2cea23d9cbd4e0f849cb98e436c8d1b726321b1ca75fba4135a4f9822349b93ecb93d7e5e601c9e
   languageName: node
   linkType: hard
 
@@ -1394,12 +1394,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/twitter-text-parser@npm:^2.1.31":
-  version: 2.1.31
-  resolution: "@threeceelabs/twitter-text-parser@npm:2.1.31"
+"@threeceelabs/twitter-text-parser@npm:^2.1.32":
+  version: 2.1.32
+  resolution: "@threeceelabs/twitter-text-parser@npm:2.1.32"
   dependencies:
     async: ^3.2.4
-    chalk: ^5.1.2
+    chalk: ^5.2.0
     clean-text-utils: ^1.1.17
     debug: ^4.3.4
     emoji-regex: ^10.2.1
@@ -1409,11 +1409,11 @@ __metadata:
     keyword-extractor: ^0.0.23
     mention-hashtag: ^1.1.1
     mentions-regex: ^2.0.3
-    natural: ^5.2.3
+    natural: ^5.2.4
     node-emoji: ^1.11.0
     non-ascii: ^2.0.0
     treeify: ^1.1.0
-  checksum: 67a5e2fac400d1d5d6f5b0bde96c9b2bf280eed237ba44d9985f26c6904c240cd8dba60a0af7261f44888ff41334baccf927f09caf78f74f8d69742e385d28aa
+  checksum: 1596b883679b5b9717b64b9fc01631a326dfc3e56b6d61786fb4466367748780468134eeb27e89791242ef711ae93d474be1f15c3eec0c56d823cc127ec81a85
   languageName: node
   linkType: hard
 
@@ -1927,7 +1927,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.1.2, chalk@npm:^5.2.0":
+"chalk@npm:^5.2.0":
   version: 5.2.0
   resolution: "chalk@npm:5.2.0"
   checksum: 03d8060277de6cf2fd567dc25fcf770593eb5bb85f460ce443e49255a30ff1242edd0c90a06a03803b0466ff0687a939b41db1757bec987113e83de89a003caa
@@ -4210,7 +4210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"natural@npm:^5.2.3":
+"natural@npm:^5.2.4":
   version: 5.2.4
   resolution: "natural@npm:5.2.4"
   dependencies:
@@ -4635,7 +4635,7 @@ __metadata:
   resolution: "purge-users@workspace:."
   dependencies:
     "@threeceelabs/mongoose-utilities": ^3.0.125
-    "@threeceelabs/threeceeutilities": ^5.2.261
+    "@threeceelabs/threeceeutilities": ^5.2.262
     command-line-args: ^5.2.1
     object.pick: ^1.3.0
     stately.js: ^2.0.0
