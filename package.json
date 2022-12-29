@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "packageManager": "yarn@3.3.0",
   "dependencies": {
-    "@threeceelabs/mongoose-utilities": "^3.0.124",
-    "@threeceelabs/threeceeutilities": "^5.2.259",
+    "@threeceelabs/mongoose-utilities": "^3.0.125",
+    "@threeceelabs/threeceeutilities": "^5.2.261",
     "command-line-args": "^5.2.1",
     "object.pick": "^1.3.0",
     "stately.js": "^2.0.0"

@@ -950,12 +950,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/language@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "@google-cloud/language@npm:5.1.0"
+"@google-cloud/language@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "@google-cloud/language@npm:5.1.2"
   dependencies:
-    google-gax: ^3.3.0
-  checksum: 2a1d0a660e8a1655f850112cf9f3793e9f543bcd6769522cae4feed5d0080c559343267a021b26236248fe0522a99e4965db8a7ccd9cf8c8a7b649b9af954368
+    google-gax: ^3.5.2
+  checksum: 7cd5f56468696f2ef9828b4ddb1cb970c0237fd57d0943bd750d31cb08dcdcb6e5a0d2a0462c195cd866507fb46db5c50c3496f135588849b7656d416acc409d
   languageName: node
   linkType: hard
 
@@ -983,7 +983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/secret-manager@npm:^4.1.4, @google-cloud/secret-manager@npm:^4.2.0":
+"@google-cloud/secret-manager@npm:^4.2.0":
   version: 4.2.0
   resolution: "@google-cloud/secret-manager@npm:4.2.0"
   dependencies:
@@ -992,7 +992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/storage@npm:^6.7.0, @google-cloud/storage@npm:^6.8.0":
+"@google-cloud/storage@npm:^6.8.0":
   version: 6.8.0
   resolution: "@google-cloud/storage@npm:6.8.0"
   dependencies:
@@ -1294,11 +1294,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/mongoose-twitter@npm:^2.0.103, @threeceelabs/mongoose-twitter@npm:^2.0.104":
-  version: 2.0.104
-  resolution: "@threeceelabs/mongoose-twitter@npm:2.0.104"
+"@threeceelabs/mongoose-twitter@npm:^2.0.105":
+  version: 2.0.105
+  resolution: "@threeceelabs/mongoose-twitter@npm:2.0.105"
   dependencies:
-    "@google-cloud/secret-manager": ^4.1.4
+    "@google-cloud/secret-manager": ^4.2.0
     "@google-cloud/storage": ^6.8.0
     async: ^3.2.4
     chai: ^4.3.7
@@ -1307,22 +1307,22 @@ __metadata:
     eventemitter3: ^5.0.0
     inject-tunnel-ssh: ^0.0.5
     moment: ^2.29.4
-    mongoose: ^6.8.0
+    mongoose: ^6.8.2
     parse-json: ^6.0.2
     shelljs: ^0.8.5
-    tunnel-ssh: ^4.1.6
+    tunnel-ssh: ^5.0.1
     wifi-name: ^3.1.1
-  checksum: 9131ae58c93e01df604e4e219e29eeb57d20f49efa9e8a4a454b43ff3e62bbc68d212bf57fcc7c5d418cc78eccb6650c92f0bfd84f16bff01541f21b71da71ce
+  checksum: 8716e006a8d3df538e4270b7d1d48b2009fc7628614f85f83b0e142d15e502aee7b17cf37c714977db23173dc9609d290bfe25d63f42892e7b87973a39f85c1b
   languageName: node
   linkType: hard
 
-"@threeceelabs/mongoose-utilities@npm:^3.0.124":
-  version: 3.0.124
-  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.124"
+"@threeceelabs/mongoose-utilities@npm:^3.0.125":
+  version: 3.0.125
+  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.125"
   dependencies:
     "@google-cloud/secret-manager": ^4.2.0
     "@google-cloud/storage": ^6.8.0
-    "@threeceelabs/mongoose-twitter": ^2.0.104
+    "@threeceelabs/mongoose-twitter": ^2.0.105
     "@threeceelabs/twitter-image-parser": ^2.1.12
     deepcopy: ^2.1.0
     eslint: ^8.30.0
@@ -1330,19 +1330,19 @@ __metadata:
     google-gax: ^3.5.2
     parse-json: ^6.0.2
     treeify: ^1.1.0
-  checksum: 14ee8e97b16a0ffa1cdba09d9acfe8530d72522f634216a456f7b6457cbf0033dafd5e8772bb21a73d3e1de227efae1aa53932ce537545727b7709c014e99db0
+  checksum: fcc8516372a452a4d7e0716b943fe0c849413e8f862502de1f93dd5cd36fb67747f5c98f7e938b2058000c5c28554ea4b067e32f45ebdf2f6e6221ee5793c09b
   languageName: node
   linkType: hard
 
-"@threeceelabs/threeceeutilities@npm:^5.2.259":
-  version: 5.2.259
-  resolution: "@threeceelabs/threeceeutilities@npm:5.2.259"
+"@threeceelabs/threeceeutilities@npm:^5.2.261":
+  version: 5.2.261
+  resolution: "@threeceelabs/threeceeutilities@npm:5.2.261"
   dependencies:
-    "@google-cloud/language": ^5.1.0
-    "@google-cloud/secret-manager": ^4.1.4
-    "@google-cloud/storage": ^6.7.0
+    "@google-cloud/language": ^5.1.2
+    "@google-cloud/secret-manager": ^4.2.0
+    "@google-cloud/storage": ^6.8.0
     "@googlemaps/google-maps-services-js": ^3.3.16
-    "@threeceelabs/mongoose-twitter": ^2.0.103
+    "@threeceelabs/mongoose-twitter": ^2.0.105
     "@threeceelabs/twitter-image-parser": ^2.1.12
     "@threeceelabs/twitter-text-parser": ^2.1.31
     async: ^3.2.4
@@ -1374,7 +1374,7 @@ __metadata:
     twit: ^2.2.11
     url-parse: ^1.5.10
     write-json-file: ^5.0.0
-  checksum: 47e527ff4a2c622f97a0fac3a7c7e8fa3b317d9f15e0d475e79cedc5cb873006ae61046c1ba1d04c7d91754f6af155715167b7ab1a916fad406a1b9fa84754bc
+  checksum: 38d7a258749009ea2457d2243bd6147e5048d86a85cd1c0c4782cdeacf15dd64837bbf4a7f437617ef565a02acbd96e7a54a0723ec36a3d9bd7e12163a806946
   languageName: node
   linkType: hard
 
@@ -1835,6 +1835,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buildcheck@npm:0.0.3":
+  version: 0.0.3
+  resolution: "buildcheck@npm:0.0.3"
+  checksum: baf30605c56e80c2ca0502e40e18f2ebc7075bb4a861c941c0b36cd468b27957ed11a62248003ce99b9e5f91a7dfa859b30aad4fa50f0090c77a6f596ba20e6d
+  languageName: node
+  linkType: hard
+
 "cacache@npm:^16.1.0":
   version: 16.1.3
   resolution: "cacache@npm:16.1.3"
@@ -2079,6 +2086,17 @@ __metadata:
     nan: ^2.14.1
     node-gyp: latest
   checksum: 15177f9a2d465e4d84390f902c977b34f237dadb29fd8553853b13d906ffe5f15be9f091c72db4f34c71412d5ff4e0e4edf04caebc875b02d1d7ecfce2963299
+  languageName: node
+  linkType: hard
+
+"cpu-features@npm:~0.0.4":
+  version: 0.0.4
+  resolution: "cpu-features@npm:0.0.4"
+  dependencies:
+    buildcheck: 0.0.3
+    nan: ^2.15.0
+    node-gyp: latest
+  checksum: a20d58e41e63182b34753dfe23bd1d967944ec13d84b70849b5d334fb4a558b7e71e7f955ed86c8e75dd65b5c5b882f1c494174d342cb6d8a062d77f79d39596
   languageName: node
   linkType: hard
 
@@ -4124,9 +4142,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongoose@npm:^6.8.0":
-  version: 6.8.0
-  resolution: "mongoose@npm:6.8.0"
+"mongoose@npm:^6.8.2":
+  version: 6.8.2
+  resolution: "mongoose@npm:6.8.2"
   dependencies:
     bson: ^4.7.0
     kareem: 2.5.0
@@ -4135,7 +4153,7 @@ __metadata:
     mquery: 4.0.3
     ms: 2.1.3
     sift: 16.0.1
-  checksum: 565fbf795cfe9b753fc4cf7787c2d3804cefb3a203705b25d41f7c67d628f96dfc644560a69d97ec0546a279339a703de72d011f5ac82b1369ba73972d5b581f
+  checksum: ff1ae68726124855954d24d575c81d9b737abfea6a051c12621acf40d4f044ecf530dabafd29e70cb8bf4aef18de8f1504c872c11d6db85bfd2a32b9d75b2ab2
   languageName: node
   linkType: hard
 
@@ -4176,7 +4194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.14.1, nan@npm:^2.15.0":
+"nan@npm:^2.14.1, nan@npm:^2.15.0, nan@npm:^2.16.0":
   version: 2.17.0
   resolution: "nan@npm:2.17.0"
   dependencies:
@@ -4616,8 +4634,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "purge-users@workspace:."
   dependencies:
-    "@threeceelabs/mongoose-utilities": ^3.0.124
-    "@threeceelabs/threeceeutilities": ^5.2.259
+    "@threeceelabs/mongoose-utilities": ^3.0.125
+    "@threeceelabs/threeceeutilities": ^5.2.261
     command-line-args: ^5.2.1
     object.pick: ^1.3.0
     stately.js: ^2.0.0
@@ -5062,6 +5080,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ssh2@npm:^1.11.0":
+  version: 1.11.0
+  resolution: "ssh2@npm:1.11.0"
+  dependencies:
+    asn1: ^0.2.4
+    bcrypt-pbkdf: ^1.0.2
+    cpu-features: ~0.0.4
+    nan: ^2.16.0
+  dependenciesMeta:
+    cpu-features:
+      optional: true
+    nan:
+      optional: true
+  checksum: e40cb9f171741a807c170dc555078aa8c49dc93dd36fc9c8be026fce1cfd31f0d37078d9b60a0f2cfb11d0e007ed5407376b72f8a0ef9f2cb89574632bbfb824
+  languageName: node
+  linkType: hard
+
 "sshpk@npm:^1.7.0":
   version: 1.17.0
   resolution: "sshpk@npm:1.17.0"
@@ -5338,7 +5373,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tunnel-ssh@npm:^4.0.0, tunnel-ssh@npm:^4.1.6":
+"tunnel-ssh@npm:^4.0.0":
   version: 4.1.6
   resolution: "tunnel-ssh@npm:4.1.6"
   dependencies:
@@ -5346,6 +5381,15 @@ __metadata:
     lodash.defaults: ^4.1.0
     ssh2: 1.4.0
   checksum: 4d39e3a7ffee1ebfa24607b9f4d920f4b2aa3fa841e60301ef7a115b5227243a97cbbc9d6032a2bab9a35888b6b736013e51fa55882fa7538ecf86e17bfe5289
+  languageName: node
+  linkType: hard
+
+"tunnel-ssh@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "tunnel-ssh@npm:5.0.1"
+  dependencies:
+    ssh2: ^1.11.0
+  checksum: 9a0aeaed9c9811ede8af1e0cfa82b475fb61d91d09991a6569670b345aea8327dd3b502e10bdb4683f2b06269c98655d74e5c18a7156c92b998575bf681edd46
   languageName: node
   linkType: hard
 
