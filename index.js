@@ -970,9 +970,7 @@ async function purgeUsersBatch(p) {
       nodeId: { $in: deleteUserArray },
     });
 
-    console.log(`${PF} | PURGE USERS | ${deleteUserArray.length}`);
-    // console.log({ results });
-    statsObj.users.deleted += deleteUserArray.length;
+    debug(`${PF} | PURGE USERS | ${deleteUserArray.length}`);
   }
 
   return results;
