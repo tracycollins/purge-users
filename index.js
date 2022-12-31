@@ -912,9 +912,38 @@ const handleMongooseEvent = async (eventObj) => {
 
 let cursor;
 
-async function purgeUser(p) {
+// async function purgeUser(p) {
+//   const params = p || {};
+//   const user = params.user;
+//   // const testMode = params.testMode || configuration.testMode;
+//   // const minFollowers = params.minFollowers || configuration.minFollowers;
+//   const maxLastSeenDays =
+//     params.maxLastSeenDays || configuration.maxLastSeenDays;
+//   // const suspended = params.suspended || configuration.suspended;
+//   // const notFound = params.notFound || configuration.notFound;
+//   // const notAuthorized = params.notAuthorized || configuration.notAuthorized;
+
+//   const result = {};
+//   result.deleted = false;
+//   result.lastSeenDaysAgo = parseInt(
+//     moment.duration(moment().diff(moment(user.lastSeen))).as("days")
+//   );
+
+//   if (result.lastSeenDaysAgo > maxLastSeenDays) {
+//     result.deleteResult = await global.wordAssoDb.User.deleteOne({
+//       nodeId: user.nodeId,
+//     });
+//     result.deleted = true;
+
+//     debug(`${PF} | PURGE USER | @${user.screenName}`);
+//     statsObj.users.deleted += 1;
+//   }
+//   return result;
+// }
+
+async function purgeUsersBatch(p) {
   const params = p || {};
-  const user = params.user;
+  const users = params.users;
   // const testMode = params.testMode || configuration.testMode;
   // const minFollowers = params.minFollowers || configuration.minFollowers;
   const maxLastSeenDays =
@@ -923,24 +952,31 @@ async function purgeUser(p) {
   // const notFound = params.notFound || configuration.notFound;
   // const notAuthorized = params.notAuthorized || configuration.notAuthorized;
 
-  const result = {};
-  result.deleted = false;
-  result.lastSeenDaysAgo = parseInt(
-    moment.duration(moment().diff(moment(user.lastSeen))).as("days")
-  );
+  const deleteUserArray = [];
+  let results = {};
+  for (const user of users) {
+    const lastSeenDaysAgo = parseInt(
+      moment.duration(moment().diff(moment(user.lastSeen))).as("days")
+    );
 
-  if (result.lastSeenDaysAgo > maxLastSeenDays) {
-    result.deleteResult = await global.wordAssoDb.User.deleteOne({
-      nodeId: user.nodeId,
-    });
-    result.deleted = true;
-
-    debug(`${PF} | PURGE USER | @${user.screenName}`);
-    statsObj.users.deleted += 1;
+    if (lastSeenDaysAgo > maxLastSeenDays) {
+      deleteUserArray.push(user.nodeId);
+      debug(`${PF} | PURGE USER | @${user.screenName}`);
+    }
   }
-  return result;
-}
 
+  if (deleteUserArray.length > 0) {
+    results = await global.wordAssoDb.User.deleteMany({
+      nodeId: { $in: deleteUserArray },
+    });
+
+    console.log(`${PF} | PURGE USERS | ${deleteUserArray.length}`);
+    // console.log({ results });
+    statsObj.users.deleted += deleteUserArray.length;
+  }
+
+  return results;
+}
 async function initfetchUsers(p) {
   console.log(chalkBlueBold(`${PF} | FETCH START`));
   const params = p || {};
@@ -1023,81 +1059,110 @@ async function initfetchUsers(p) {
   statsObj.queues.fetchUser.busy = !fetchUserReady;
 
   let previousUserId = lastUserFetched;
+  const deleteUsersBatch = [];
+  let purgeUserResult = {};
 
   fetchUserInterval = setInterval(async () => {
     if (fetchUserReady) {
       try {
         fetchUserReady = false;
-        let user;
         try {
-          user = await cursor.next();
-          statsObj.users.fetched += 1;
+          if (deleteUsersBatch.length < 10) {
+            const user = await cursor.next();
+
+            if (!user) {
+              clearInterval(fetchUserInterval);
+
+              if (deleteUsersBatch.length > 0)
+                purgeUserResult = await purgeUsersBatch({
+                  users: deleteUsersBatch,
+                });
+
+              lastUserFetched = "RESTART";
+
+              await tcUtils.saveFile({
+                folder: configHostFolder,
+                file: lastUserFetchedFile,
+                obj: { nodeId: previousUserId },
+              });
+
+              fsm.fsm_fetchUserEnd();
+              fetchUserReady = true;
+              return;
+            }
+
+            deleteUsersBatch.push(user);
+            statsObj.users.fetched += 1;
+            fetchUserReady = true;
+          } else {
+            purgeUserResult = await purgeUsersBatch({
+              users: deleteUsersBatch,
+            });
+
+            const lastUser = deleteUsersBatch[deleteUsersBatch.length - 1];
+
+            statsObj.users.deleted += purgeUserResult.deletedCount
+              ? purgeUserResult.deletedCount
+              : 0;
+
+            const chlk = purgeUserResult.deletedCount ? chalkInfo : chalkLog;
+
+            statsObj.users.purgeRate =
+              (100 * statsObj.users.deleted) / statsObj.users.fetched;
+
+            statsObj.users.percentProcessed =
+              (100 * statsObj.users.fetched) / statsObj.users.total;
+
+            if (verbose || purgeUserResult.deletedCount) {
+              console.log(
+                chlk(
+                  `${PF} | PURGE` +
+                    ` [ ${statsObj.users.deleted}` +
+                    ` / ${statsObj.users.fetched}` +
+                    ` / ${statsObj.users.total}` +
+                    ` / ${statsObj.users.purgeRate.toFixed(2)}% PURGE RATE` +
+                    ` - ${statsObj.users.percentProcessed.toFixed(
+                      2
+                    )}% PRCSD ]` +
+                    ` | LS: ${moment(lastUser.lastSeen).format(
+                      compactDateTimeFormat
+                    )}` +
+                    // `, ${parseInt(purgeUserResult.lastSeenDaysAgo)} DAYS AGO` +
+                    // ` - MAX: ${configuration.maxLastSeenDays}` +
+                    ` | DELETED: ${formatBoolean(purgeUserResult.deleted)}` +
+                    ` | CM: ${formatCategory(lastUser.category)}` +
+                    ` | CA: ${formatCategory(lastUser.categoryAuto)}` +
+                    ` | ${lastUser.followersCount} FLWRs` +
+                    ` | ${lastUser.friendsCount} FRNDs` +
+                    ` | NID: ${lastUser.nodeId}` +
+                    ` | @${lastUser.screenName}`
+                )
+              );
+            }
+            previousUserId = lastUserFetched;
+            lastUserFetched =
+              deleteUsersBatch[deleteUsersBatch.length - 1].nodeId;
+
+            await tcUtils.saveFile({
+              folder: configHostFolder,
+              file: lastUserFetchedFile,
+              obj: { nodeId: lastUserFetched },
+            });
+
+            deleteUsersBatch.length = 0;
+          }
+          fetchUserReady = true;
         } catch (err) {
+          console.error(err);
           if (err.name.includes("MongoExpiredSessionError")) {
+            console.error(err);
             cursor = await mgUtils.initCursor({
               query,
               cursorLean: true,
             });
           }
-        }
-        if (!user) {
-          clearInterval(fetchUserInterval);
-
-          lastUserFetched = "RESTART";
-
-          await tcUtils.saveFile({
-            folder: configHostFolder,
-            file: lastUserFetchedFile,
-            obj: { nodeId: previousUserId },
-          });
-
-          fsm.fsm_fetchUserEnd();
           fetchUserReady = true;
-          return;
         }
-
-        const purgeUserResult = await purgeUser({ user });
-        const chlk = purgeUserResult.deleted ? chalkInfo : chalkLog;
-
-        statsObj.users.purgeRate =
-          (100 * statsObj.users.deleted) / statsObj.users.fetched;
-
-        statsObj.users.percentProcessed =
-          (100 * statsObj.users.fetched) / statsObj.users.total;
-
-        if (verbose || purgeUserResult.deleted)
-          console.log(
-            chlk(
-              `${PF} | PURGE` +
-                ` [ ${statsObj.users.deleted}` +
-                ` / ${statsObj.users.fetched}` +
-                ` / ${statsObj.users.total}` +
-                ` / ${statsObj.users.purgeRate.toFixed(2)}% PURGE RATE` +
-                ` - ${statsObj.users.percentProcessed.toFixed(2)}% PRCSD ]` +
-                ` | LS: ${moment(user.lastSeen).format(
-                  compactDateTimeFormat
-                )}` +
-                `, ${parseInt(purgeUserResult.lastSeenDaysAgo)} DAYS AGO` +
-                ` - MAX: ${configuration.maxLastSeenDays}` +
-                ` | DELETED: ${formatBoolean(purgeUserResult.deleted)}` +
-                ` | CM: ${formatCategory(user.category)}` +
-                ` | CA: ${formatCategory(user.categoryAuto)}` +
-                ` | ${user.followersCount} FLWRs` +
-                ` | ${user.friendsCount} FRNDs` +
-                ` | NID: ${user.nodeId}` +
-                ` | @${user.screenName}`
-            )
-          );
-        previousUserId = user.nodeId;
-        lastUserFetched = user.nodeId;
-
-        await tcUtils.saveFile({
-          folder: configHostFolder,
-          file: lastUserFetchedFile,
-          obj: { nodeId: user.nodeId },
-        });
-
-        fetchUserReady = true;
       } catch (err) {
         console.error(
           `${PF} | *** initfetchUsers ERROR | code: ${err.code} | message: ${err.message} ${err}`
