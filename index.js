@@ -1092,7 +1092,7 @@ async function initfetchUsers(p) {
             }
 
             deleteUsersBatch.push(user);
-            statsObj.users.fetched += 1;
+            // statsObj.users.fetched += 1;
             fetchUserReady = true;
           } else {
             purgeUserResult = await purgeUsersBatch({
@@ -1101,6 +1101,7 @@ async function initfetchUsers(p) {
 
             const lastUser = deleteUsersBatch[deleteUsersBatch.length - 1];
 
+            statsObj.users.fetched += deleteUsersBatch.length;
             statsObj.users.deleted += purgeUserResult.deletedCount
               ? purgeUserResult.deletedCount
               : 0;
