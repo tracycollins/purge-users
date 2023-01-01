@@ -1081,7 +1081,7 @@ async function initfetchUsers(p) {
               await tcUtils.saveFile({
                 folder: configHostFolder,
                 file: lastUserFetchedFile,
-                obj: { nodeId: previousUserId },
+                obj: { nodeId: "1" },
               });
 
               fsm.fsm_fetchUserEnd();
