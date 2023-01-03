@@ -1333,9 +1333,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/threeceeutilities@npm:^5.2.275":
-  version: 5.2.275
-  resolution: "@threeceelabs/threeceeutilities@npm:5.2.275"
+"@threeceelabs/threeceeutilities@npm:^5.2.276":
+  version: 5.2.276
+  resolution: "@threeceelabs/threeceeutilities@npm:5.2.276"
   dependencies:
     "@google-cloud/language": ^5.1.2
     "@google-cloud/secret-manager": ^4.2.0
@@ -1373,7 +1373,7 @@ __metadata:
     twit: ^2.2.11
     url-parse: ^1.5.10
     write-json-file: ^5.0.0
-  checksum: 1e2a4ad13c1e67d496f1b1d72479bf264d660029188618a9e4d201946102a8c3e4c4be8e21965f9b8894d10e7e58bb6ecf2e24617587acc44cb20891fea51824
+  checksum: 25681e7fc82796b40f913ae1aa1993e5504aed59eb36f8ec3ee2c0d8865de7f36503f4bca335e5b3683efa2cbb93cc6a8a7ca9d68f1563214ce21200b0ade4e8
   languageName: node
   linkType: hard
 
@@ -4617,7 +4617,7 @@ __metadata:
   resolution: "purge-users@workspace:."
   dependencies:
     "@threeceelabs/mongoose-utilities": ^3.0.134
-    "@threeceelabs/threeceeutilities": ^5.2.275
+    "@threeceelabs/threeceeutilities": ^5.2.276
     command-line-args: ^5.2.1
     eslint: ^8.31.0
     object.pick: ^1.3.0
