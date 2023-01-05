@@ -1028,16 +1028,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@googlemaps/google-maps-services-js@npm:^3.3.16":
-  version: 3.3.16
-  resolution: "@googlemaps/google-maps-services-js@npm:3.3.16"
+"@googlemaps/google-maps-services-js@npm:^3.3.26":
+  version: 3.3.26
+  resolution: "@googlemaps/google-maps-services-js@npm:3.3.26"
   dependencies:
     "@googlemaps/url-signature": ^1.0.4
     agentkeepalive: ^4.1.0
-    axios: ^0.27.0
-    query-string: ^7.0.1
-    retry-axios: ^2.2.1
-  checksum: c4d3fcd9b94ed6a7470174efdb1842985e86846196cc6bb34426aef8bd0481b39e038277187ccf8677fcb24301d43c8e2652078e9dc6ed176c0d777d3822b3e2
+    axios: 0.27.2
+    query-string: 7.1.3
+    retry-axios: 2.6.0
+  checksum: 2b059a5f9e8127b7c59ec925883340c33922eed4c208ec456152ece196f4733f0a8d15546be939c8342fd6f55b1d9d64c974745fe017b014083d344f31558e71
   languageName: node
   linkType: hard
 
@@ -1315,9 +1315,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/mongoose-utilities@npm:^3.0.152":
-  version: 3.0.152
-  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.152"
+"@threeceelabs/mongoose-utilities@npm:^3.0.153":
+  version: 3.0.153
+  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.153"
   dependencies:
     "@google-cloud/secret-manager": ^4.2.0
     "@google-cloud/storage": ^6.9.0
@@ -1329,21 +1329,21 @@ __metadata:
     google-gax: ^3.5.2
     parse-json: ^6.0.2
     treeify: ^1.1.0
-  checksum: 5fc201e5a46606ed25148af80b639497ce8caf401df76d257f21f8ef040dad2585f6dc0df7e71137e280ae3a1a791227d693960b25c859b930f96b0de011d592
+  checksum: 8105e75c4072d58982f4c85d4d9c0d18ea83ea3a2641bd2eb0d928e7117b64cbdbb662de8e4bace9501cffdc2548f39b3bce1732871c25f43bd090e0018f559e
   languageName: node
   linkType: hard
 
-"@threeceelabs/threeceeutilities@npm:^5.2.301":
-  version: 5.2.301
-  resolution: "@threeceelabs/threeceeutilities@npm:5.2.301"
+"@threeceelabs/threeceeutilities@npm:^5.2.302":
+  version: 5.2.302
+  resolution: "@threeceelabs/threeceeutilities@npm:5.2.302"
   dependencies:
     "@google-cloud/language": ^5.1.2
     "@google-cloud/secret-manager": ^4.2.0
     "@google-cloud/storage": ^6.9.0
-    "@googlemaps/google-maps-services-js": ^3.3.16
+    "@googlemaps/google-maps-services-js": ^3.3.26
     "@threeceelabs/mongoose-twitter": ^2.0.114
     "@threeceelabs/twitter-image-parser": ^2.1.12
-    "@threeceelabs/twitter-text-parser": ^2.1.36
+    "@threeceelabs/twitter-text-parser": ^2.1.37
     async: ^3.2.4
     atob: ^2.1.2
     btoa: ^1.2.1
@@ -1374,7 +1374,7 @@ __metadata:
     twit: ^2.2.11
     url-parse: ^1.5.10
     write-json-file: ^5.0.0
-  checksum: 79e11c65572ac3b456f93aa5f9fd13acf92ff1a4df5e2d6fbbd1888eee87365a63a1237f1677ad309379965e2419cf2d9d0ede6e634c635c3ad0f7e0d26ac2cc
+  checksum: 7411cde46a3c7b2416ba3125cdaa35630886c65a884ef85bd8ea8946b5f3e77af7af6a4a336d6aea1cc68efc76a73f3c0fceadc407dc9b2a1ff6fa91448de2a7
   languageName: node
   linkType: hard
 
@@ -1394,9 +1394,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/twitter-text-parser@npm:^2.1.36":
-  version: 2.1.36
-  resolution: "@threeceelabs/twitter-text-parser@npm:2.1.36"
+"@threeceelabs/twitter-text-parser@npm:^2.1.37":
+  version: 2.1.37
+  resolution: "@threeceelabs/twitter-text-parser@npm:2.1.37"
   dependencies:
     async: ^3.2.4
     chalk: ^5.2.0
@@ -1413,7 +1413,7 @@ __metadata:
     node-emoji: ^1.11.0
     non-ascii: ^2.0.0
     treeify: ^1.1.0
-  checksum: e0e56720ad0713bf87b3ec89e68ea0f0aec03a550dff518ca203d2f7c5f18e64ccbcd964965f4c4e38a1b6ce9734ca0a786862974e905f8b8d87b047a0d30bc1
+  checksum: 6f7b594f4846a9369c1721749742a386a945b3a452d30bf1271ed6d1be8f1ab95ef32b6960c07d354ffb036ed3a1471a574d7ba901e18230a3c779fa3613d9c7
   languageName: node
   linkType: hard
 
@@ -1727,7 +1727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.0":
+"axios@npm:0.27.2":
   version: 0.27.2
   resolution: "axios@npm:0.27.2"
   dependencies:
@@ -4624,8 +4624,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "purge-users@workspace:."
   dependencies:
-    "@threeceelabs/mongoose-utilities": ^3.0.152
-    "@threeceelabs/threeceeutilities": ^5.2.301
+    "@threeceelabs/mongoose-utilities": ^3.0.153
+    "@threeceelabs/threeceeutilities": ^5.2.302
     command-line-args: ^5.2.1
     eslint: ^8.31.0
     object.pick: ^1.3.0
@@ -4640,7 +4640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"query-string@npm:^7.0.1":
+"query-string@npm:7.1.3":
   version: 7.1.3
   resolution: "query-string@npm:7.1.3"
   dependencies:
@@ -4807,7 +4807,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"retry-axios@npm:^2.2.1":
+"retry-axios@npm:2.6.0":
   version: 2.6.0
   resolution: "retry-axios@npm:2.6.0"
   peerDependencies:
