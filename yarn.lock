@@ -1315,9 +1315,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@threeceelabs/mongoose-utilities@npm:^3.0.156":
-  version: 3.0.156
-  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.156"
+"@threeceelabs/mongoose-utilities@npm:^3.0.157":
+  version: 3.0.157
+  resolution: "@threeceelabs/mongoose-utilities@npm:3.0.157"
   dependencies:
     "@google-cloud/secret-manager": ^4.2.0
     "@google-cloud/storage": ^6.9.0
@@ -1329,13 +1329,13 @@ __metadata:
     google-gax: ^3.5.2
     parse-json: ^6.0.2
     treeify: ^1.1.0
-  checksum: fd43333f2e0ec1a7ea628f1d2246af02416192394d17eac5035d2ae5a0575dbb343a54a463d38b9485e7168c4cefd65989cea7655108e0e7c04a1abd112dc6f2
+  checksum: c0a8348304cb0cdee5d2ac99331f046182599d2f6134f94abb83dc4d246bc10ffbc60fa265e6d3b588c332661654e12d045abdc6d2b47a5ef7a8deb2ab7c1903
   languageName: node
   linkType: hard
 
-"@threeceelabs/threeceeutilities@npm:^5.2.310":
-  version: 5.2.310
-  resolution: "@threeceelabs/threeceeutilities@npm:5.2.310"
+"@threeceelabs/threeceeutilities@npm:^5.2.312":
+  version: 5.2.312
+  resolution: "@threeceelabs/threeceeutilities@npm:5.2.312"
   dependencies:
     "@google-cloud/language": ^5.1.2
     "@google-cloud/secret-manager": ^4.2.0
@@ -1376,7 +1376,7 @@ __metadata:
     twit: ^2.2.11
     url-parse: ^1.5.10
     write-json-file: ^5.0.0
-  checksum: f9a218736723f89248ef35a22cbf429d66cd1bb087bc0657150d11628ac9b5379aeef46324d9851750e2177b43e91dc446485b3c446a2b3d317f30de82498848
+  checksum: 8ecbf25c394d0b87a683a0177099258e992ea1106b24b1ff594f9dfab20d25ad174e4bea896d9fffc5a737dfbf10b4379ed92e59214e1961357fdf582795e3d6
   languageName: node
   linkType: hard
 
@@ -4659,8 +4659,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "purge-users@workspace:."
   dependencies:
-    "@threeceelabs/mongoose-utilities": ^3.0.156
-    "@threeceelabs/threeceeutilities": ^5.2.310
+    "@threeceelabs/mongoose-utilities": ^3.0.157
+    "@threeceelabs/threeceeutilities": ^5.2.312
     command-line-args: ^5.2.1
     eslint: ^8.31.0
     object.pick: ^1.3.0
